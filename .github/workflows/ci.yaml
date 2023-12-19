@@ -1,0 +1,23 @@
+name: GO images
+
+on:
+  push:
+    branches:
+     - main
+
+jobs:
+  push_to_registry:
+    name: GO images
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+      
+           
+      - name: Build and push GO images
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        with:
+          context: .
+          file: ./Dockerfile
+          push: false
+          tags: git.zjvtit.net/registry/shortnet:226510106
