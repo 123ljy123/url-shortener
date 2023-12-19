@@ -1,6 +1,7 @@
-FROM golang:1.15.5
+FROM golang:1.20
 WORKDIR /tem
-ADD go-packages.tar.gz  /tem
-RUN GOPROXY=goproxy.cn  go build -o webapp .
-EXPOSE 8080
-CMD ["./webapp"]
+COPY . .
+RUN GOPROXY=goproxy.cn  go mod download
+RUN go build - o main .
+EXPOSE 80
+CMD ["./main"]
