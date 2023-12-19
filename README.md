@@ -5,7 +5,7 @@ GOPROXY=goproxy.cn go mod download
 ```
 2. 编译
 ```
-go build -o main
+go build -o main 
 ```
 3. 运行
 ```
